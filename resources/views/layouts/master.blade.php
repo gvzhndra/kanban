@@ -10,10 +10,16 @@
     <title>@yield('pageTitle')</title>
 </head>
 
+
 <body>
-<div class="main">
-    @yield('main')
+<!-- Memperbarui HTML code dibawah -->
+<div class="container">
+    @include('partials.sidebar')
+    <div class="main">
+        @yield('main')
+    </div>
 </div>
 </body>
 
 </html>
+
