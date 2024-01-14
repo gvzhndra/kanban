@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('pageTitle', 'Home')
+
 @section('main')
     <div class="container">
         <div class="main">
