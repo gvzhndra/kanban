@@ -76,4 +76,14 @@ class TaskController extends Controller
         return view('tasks.edit', ['pageTitle' => $pageTitle, 'task' => $task]);
     }
 
+    public function create()
+    {
+        $pageTitle = 'Create Task'; // Ditambahkan
+        $tasks = $this->tasks;
+        return view('tasks.create', [
+            'pageTitle' => $pageTitle, //Ditambahkan
+            'tasks' => $tasks,
+        ]);
+    }
+
 }
