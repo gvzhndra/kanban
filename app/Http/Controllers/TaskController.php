@@ -60,4 +60,31 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+            'due_date' => 'required',
+            'status' => 'required',
+        ]);
+
+        $task = Task::find($id);
+        $task->update([
+            // data task yang berasal dari formulir
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'due_date' => $request->due_date,
+            'status' => $request->status,
+        ]);
+
+        // Code untuk melakukan redirect menuju GET /tasks
+        return redirect()->route('tasks.index');
+    }
+
+    public function delete($id){
+        $task = Task::find($id);
+        $task->delete();
+    }
+
 }
