@@ -117,12 +117,24 @@ class TaskController extends Controller
             Task::STATUS_COMPLETED => $filteredTasks->get(
                 Task::STATUS_COMPLETED, []
             ),
-    ];
+        ];
 
-    return view('tasks.progress', [
-        'pageTitle' => $title,
-        'tasks' => $tasks,
-    ]);
-}
+        return view('tasks.progress', [
+            'pageTitle' => $title,
+            'tasks' => $tasks,
+        ]);
+    }
+
+    public function move(int $id, Request $request)
+    {
+        $task = Task::findOrFail($id);
+
+        $task->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('tasks.progress');
+    }
+
 
 }
