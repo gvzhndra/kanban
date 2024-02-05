@@ -322,3 +322,20 @@ body {
 .task-progress-card-title {
     font-size: 30px;
 }
+
+
+
+
+.task-progress-column-heading {
+    display: flex;
+    align-items: center;
+}
+
+.task-progress-column-heading h2 {
+    margin: 0;
+}
+
+.task-list-task-buttons {
+    margin-left: auto;
+}
+

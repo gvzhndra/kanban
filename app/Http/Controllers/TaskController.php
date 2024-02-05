@@ -21,6 +21,13 @@ class TaskController extends Controller
         ]);
     }
 
+    public function remaining_task()
+    {
+        $completedCount = Task::where('status', 'completed')->count();
+        $remainingCount = Task::where('status', '!=', 'completed')->count();
+        return view('home', compact('completedCount', 'remainingCount'));
+    }
+
     public function edit($id)
     {
         $pageTitle = 'Edit Task';
@@ -144,7 +151,7 @@ class TaskController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('tasks.progress');
+        return redirect()->route('tasks.index');
     }
 
 

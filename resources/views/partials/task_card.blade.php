@@ -4,7 +4,7 @@
             <div class="material-icons task-progress-card-top-checked">check_circle</div>
         @else
             <form
-                action="{{ route('tasks.completed', ['id' => $task->id, 'status' => 'completed']) }}" method="POST" id="trigger-submit-{{$task->id}}">
+                action="{{ route('tasks.move', ['id' => $task->id, 'status' => 'completed']) }}" method="POST" id="trigger-submit-{{$task->id}}">
                 @csrf
                 @method('patch')
                 <div class="material-icons task-progress-card-top-check" onclick="document.getElementById('trigger-submit-{{$task->id}}').submit()" >check_circle</div>

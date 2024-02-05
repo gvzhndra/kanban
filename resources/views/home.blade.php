@@ -10,12 +10,12 @@
 
                 <div  class="task-summary-list">
                     <span class="material-icons">check_circle</span>
-                    <h2>You have completed 1 task</h2>
+                    <h2>You have completed {{ $completedCount }} task{{ $completedCount != 1 ? 's' : '' }}</h2>
                 </div>
 
                 <div class="task-summary-list">
                     <span class="material-icons">list</span>
-                    <h2>You still have 5 tasks left</h2>
+                    <h2>You still have {{ $remainingCount }} task{{ $remainingCount != 1 ? 's' : '' }} left</h2>
                 </div>
             </div>
         </div>

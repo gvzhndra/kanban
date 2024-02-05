@@ -24,9 +24,17 @@
         @foreach ($tasks as $index => $task)
             <div class="table-body">
                 <div class="table-body-task-name">
-          <span class="material-icons @if ($task->status == 'completed') check-icon-completed @else check-icon @endif" >
-            check_circle
-          </span>
+                    <span>
+                    @if ($task->status == 'completed')
+                        <div class="material-icons task-progress-card-top-checked">check_circle </div>
+                    @else
+                        <form action="{{ route('tasks.completed', ['id' => $task->id, 'status' => 'completed']) }}" method="POST" id="trigger-submit-{{$task->id}}">
+                            @csrf
+                            @method('patch')
+                            <button type="submit" class="material-icons task-progress-card-top-check">check_circle </button>
+                        </form>
+                    @endif
+                    </span>
                     {{ $task->name }}
                 </div>
                 <div class="table-body-detail"> {{ $task->detail }} </div>
