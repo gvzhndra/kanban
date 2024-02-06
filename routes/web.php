@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController; // Ditambahkan
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +32,9 @@ Route::prefix('tasks')
         Route::delete('{id}/destroy', 'destroy')->name('destroy');
     });
 
+Route::name('auth.')
+    ->controller(AuthController::class)
+    ->group(function () {
+        Route::get('signup', 'signupForm')->name('signupForm');
+        Route::post('signup', 'signup')->name('signup');
+    });
