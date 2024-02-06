@@ -26,7 +26,7 @@
                 <div class="table-body-task-name">
                     <span>
                     @if ($task->status == 'completed')
-                        <div class="material-icons task-progress-card-top-checked">check_circle </div>
+                        <div class="material-icons task-progress-card-top-checked" style="margin-right: 5px;">check_circle </div>
                     @else
                         <form action="{{ route('tasks.completed', ['id' => $task->id, 'status' => 'completed']) }}" method="POST" id="trigger-submit-{{$task->id}}">
                             @csrf
