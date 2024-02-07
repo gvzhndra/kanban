@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', function () {return view('home');})->name('home');
+
+Route::get('/', [TaskController::class, 'remaining_task'])->name('home');
 
 Route::prefix('tasks')
     ->name('tasks.')
@@ -28,5 +28,8 @@ Route::prefix('tasks')
         Route::put('/{id}', 'update')->name('update');
         Route::get('{id}/delete', 'delete')->name('delete');
         Route::delete('{id}/destroy', 'destroy')->name('destroy');
+        Route::get('progress', 'progress')->name('progress');
+        Route::patch('{id}/move', 'move')->name('move');
+        Route::patch('{id}/completed', 'completed')->name('completed');
     });
 
