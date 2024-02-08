@@ -16,6 +16,9 @@
                     value="{{ old('name', $task->name) }}"
                     name="name"
                 >
+                @error('name')
+                <div class="alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-item">
@@ -31,6 +34,9 @@
                     value="{{ old('due_date', $task->due_date) }}"
                     name="due_date"
                 >
+                @error('due_date')
+                <div class="alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-item">
