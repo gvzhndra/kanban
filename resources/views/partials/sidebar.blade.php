@@ -18,7 +18,7 @@
                 <span class="material-icons sidebar-icon">logout</span>
                 <p class="sidebar-text">Logout</p>
             </a>
-            <form id="logout-form" action="" method="POST" style="display: none;">
+            <form id="logout-form" action="{{route('auth.logout')}}" method="POST" style="display: none;">
                 @csrf
             </form>
         @endif
