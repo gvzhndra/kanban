@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {return view('home');})->name('home')->middleware('auth');
 
-Route::get('/', [TaskController::class, 'remaining_task'])->name('home')->middleware('auth');
+//Route::get('/', [TaskController::class, 'remaining_task'])->name('home')->middleware('auth');
+Route::get('/', [TaskController::class, 'home'])
+    ->name('home')
+    ->middleware('auth');
 
 Route::prefix('tasks')
     ->name('tasks.')
