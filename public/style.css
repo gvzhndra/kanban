@@ -337,3 +337,6 @@ body {
     margin-left: auto;
 }
 
+.table-body-links {
+    width: 10%;
+}
