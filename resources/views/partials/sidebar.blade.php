@@ -22,6 +22,10 @@
                 @csrf
             </form>
         @endif
+        <a class="sidebar-link" href="{{ route('roles.index') }}">
+            <span class="material-icons sidebar-icon">settings</span>
+            <p class="sidebar-text">Roles</p>
+        </a>
     </div>
 </div>
 
