@@ -26,6 +26,10 @@
             <span class="material-icons sidebar-icon">settings</span>
             <p class="sidebar-text">Roles</p>
         </a>
+        <a class="sidebar-link" href="{{ route('users.index') }}">
+            <span class="material-icons sidebar-icon">group</span>
+            <p class="sidebar-text">Users</p>
+        </a>
     </div>
 </div>
 
