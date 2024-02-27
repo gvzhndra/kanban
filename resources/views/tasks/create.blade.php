@@ -53,6 +53,16 @@
                 <div class="alert-danger">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="form-item">
+                <label>File:</label>
+                <input class="form-input" type="file" value="{{ old('file') }}" name="file">
+
+                @error('file')
+                <div class="alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
             <!-- Tentukan button type sebagai submit -->
             <button type="submit" class="form-button">Submit</button>
         </form>

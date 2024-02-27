@@ -5,6 +5,7 @@ use App\Http\Controllers\TaskController; // Ditambahkan
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TaskFileController;
 
 /*git add .
 |--------------------------------------------------------------------------
@@ -79,3 +80,26 @@ Route::prefix('users')
         Route::get('{id}/edit-role', 'editRole')->name('editRole');
         Route::put('{id}/update-role', 'updateRole')->name('updateRole');
     });
+
+Route::prefix('tasks')
+    ->name('tasks.')
+    ->middleware('auth')
+    ->group(function () {
+        // Pindahkan method "controller" di dalam "/tasks"
+        Route::controller(TaskController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+        });
+
+        // Route - route untuk TaskFile di dalam "/tasks"
+        Route::prefix('{task_id}/files')
+            ->name('files.')
+            ->controller(TaskFileController::class)
+            ->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::get('{id}/show', 'show')->name('show');
+                Route::delete('{id}/destroy', 'destroy')->name('destroy');
+            });
+    });
+
