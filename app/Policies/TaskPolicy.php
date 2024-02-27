@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 
 class TaskPolicy
 {
@@ -29,11 +30,6 @@ class TaskPolicy
         return $user->id == $task->user_id;
     }
 
-    public function performAsTaskOwner($user, $task)
-    {
-        return $user->id == $task->user_id;
-    }
-
     protected function getUserPermissions($user)
     {
         return $user
@@ -55,7 +51,6 @@ class TaskPolicy
 
         return false;
     }
-
     public function performAsTaskOwner($user, $task)
     {
         return $user->id == $task->user_id;
