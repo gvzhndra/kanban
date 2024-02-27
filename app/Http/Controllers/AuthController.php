@@ -26,7 +26,7 @@ class AuthController extends Controller
             [
                 'email.unique' => 'The email address is already taken.',
             ],
-            $request->all()
+//            $request->all()
         );
 
         User::create([
@@ -56,7 +56,7 @@ class AuthController extends Controller
                 'email' => ['required', 'email'],
                 'password' => 'required',
             ],
-            $request->all()
+//            $request->all()
         );
 
         $credentials = $request->only('email', 'password');

@@ -20,6 +20,7 @@
             <div class="task-list-header-due-date">Due Date</div>
             <div class="task-list-header-progress">Progress</div>
             <div class="task-list-header-owner-name">Owner</div>
+            <div class="task-list-header-links"></div>
         </div>
 
         @foreach ($tasks as $index => $task)
@@ -56,11 +57,12 @@
                     @endswitch
                 </div>
                 <div class="table-body-owner-name">{{ $task->user->name }}</div>
-                <div class="table-body-links">
-                    @can('update', $task)
+{{--            <div class="table-body-links">--}}
+                <div>
+                    @canany(['updateAnyTask', 'performAsTaskOwner'], $task)
                         <a href="{{ route('tasks.edit', ['id' => $task->id]) }}">Edit</a>
                     @endcan
-                    @can('delete', $task)
+                    @canany(['deleteAnyTask', 'performAsTaskOwner'], $task)
                         <a href="{{ route('tasks.delete', ['id' => $task->id]) }}">Delete</a>
                     @endcan
                 </div>
