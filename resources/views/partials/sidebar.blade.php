@@ -12,6 +12,14 @@
            <span class="material-icons sidebar-icon">check_box</span>
            <p class="sidebar-text">Task Progress</p>
        </a>
+        <a class="sidebar-link" href="{{ route('roles.index') }}">
+            <span class="material-icons sidebar-icon">settings</span>
+            <p class="sidebar-text">Roles</p>
+        </a>
+        <a class="sidebar-link" href="{{ route('users.index') }}">
+            <span class="material-icons sidebar-icon">group</span>
+            <p class="sidebar-text">Users</p>
+        </a>
         @if (Auth::check())
             <a class="sidebar-link" href=""
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -22,14 +30,6 @@
                 @csrf
             </form>
         @endif
-        <a class="sidebar-link" href="{{ route('roles.index') }}">
-            <span class="material-icons sidebar-icon">settings</span>
-            <p class="sidebar-text">Roles</p>
-        </a>
-        <a class="sidebar-link" href="{{ route('users.index') }}">
-            <span class="material-icons sidebar-icon">group</span>
-            <p class="sidebar-text">Users</p>
-        </a>
     </div>
 </div>
 
