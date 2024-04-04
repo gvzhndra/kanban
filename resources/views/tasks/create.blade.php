@@ -6,7 +6,7 @@
     <div class="form-container">
         <h1 class="form-title">{{ $pageTitle }}</h1>
         <!-- Tambahkan method dan action -->
-        <form class="form" method="POST" action="{{ route('tasks.store') }}">
+        <form class="form" method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data>
             @csrf <!-- Ditambahkan -->
             <div class="form-item">
                 <label>Name:</label>
