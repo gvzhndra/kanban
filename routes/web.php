@@ -18,7 +18,7 @@ use App\Http\Controllers\TaskFileController;
 |
 */
 
-Route::get('/', function () {return view('home');})->name('home')->middleware('auth');
+//Route::get('/', function () {return view('home');})->name('home')->middleware('auth');
 
 //Route::get('/', [TaskController::class, 'remaining_task'])->name('home')->middleware('auth');
 Route::get('/', [TaskController::class, 'home'])
